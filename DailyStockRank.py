@@ -139,7 +139,7 @@ def make_default_config():
     return {
         "config_version": 1,
         "ui": {
-            "window_title": "个股排序导出工具 v1.0 20260524",
+            "window_title": "个股扫描排序助手 v1.0 20260524",
             "window_geometry": "1360x760",
         },
         "data_source": "local_db",
@@ -1869,7 +1869,7 @@ class ExportApp:
 
         tk.Label(
             title_frame,
-            text="个股排序导出为多页Excel表——汇总表及每日排序明细表 v1.0 20260524",
+            text="个股排序导出为多页Excel表——汇总表及每日明细表",
             font=("Microsoft YaHei", 15, "bold"),
         ).pack(side="left", anchor="w")
 
@@ -2929,15 +2929,36 @@ def main():
 
 if __name__ == "__main__":
     main()
-'''
-运行虚拟环境
-PS E:\AppProject\DailyStockRank> .venv\\Scripts\activate
+    
 
-封装exe文件
-Set-Location "E:\AppProject\DailyStockRank"
-pyinstaller --noconfirm --onefile --windowed --name DailyStockRank --collect-data tzdata --hidden-import openpyxl --hidden-import openpyxl.styles --hidden-import openpyxl.utils --hidden-import openpyxl.writer.excel --hidden-import openpyxl.reader.excel --hidden-import pandas._libs.tslibs.np_datetime --hidden-import pandas._libs.tslibs.nattype --hidden-import pandas._libs.tslibs.timedeltas --hidden-import pandas._libs.missing --exclude-module matplotlib --exclude-module scipy --exclude-module IPython --exclude-module notebook --exclude-module jupyter --exclude-module pytest --exclude-module unittest --exclude-module requests --exclude-module httpx --exclude-module mootdx --exclude-module tdxpy --exclude-module eltdx --exclude-module OpenCC "E:\AppProject\DailyStockRank\DailyStockRank.py" --add-data "E:\AppProject\DailyStockRank\wechat_qr.png;." --icon "E:\AppProject\DailyStockRank\icon.ico" --add-data "E:\AppProject\DailyStockRank\icon.ico;."
+# 【运行虚拟环境】
+# PS E:\AppProject\DailyStockRank> .venv\\Scripts\activate
 
+# 【封装exe文件】
+# Set-Location "E:\AppProject\DailyStockRank"
+# pyinstaller --noconfirm --onefile --windowed --name DailyStockRank --collect-data tzdata --hidden-import openpyxl --hidden-import openpyxl.styles --hidden-import openpyxl.utils --hidden-import openpyxl.writer.excel --hidden-import openpyxl.reader.excel --hidden-import pandas._libs.tslibs.np_datetime --hidden-import pandas._libs.tslibs.nattype --hidden-import pandas._libs.tslibs.timedeltas --hidden-import pandas._libs.missing --exclude-module matplotlib --exclude-module scipy --exclude-module IPython --exclude-module notebook --exclude-module jupyter --exclude-module pytest --exclude-module unittest --exclude-module requests --exclude-module httpx --exclude-module mootdx --exclude-module tdxpy --exclude-module eltdx --exclude-module OpenCC "E:\AppProject\DailyStockRank\DailyStockRank.py" --add-data "E:\AppProject\DailyStockRank\wechat_qr.png;." --icon "E:\AppProject\DailyStockRank\icon.ico" --add-data "E:\AppProject\DailyStockRank\icon.ico;." --upx-dir "D:\upx-5.1.1-win64"
 
-文件会生成在"E:\AppProject\ExportDailyStockXlsx\dist\DailyStockRank.exe"
+# 文件会生成在"E:\AppProject\DailyStockRank\dist\DailyStockRank.exe"
 
-'''
+# 【github版本管理】
+
+# Set-Location "E:\AppProject\DailyStockRank"
+# git init #初始化，仅最初运行一次，后续不再运行
+
+# git add . #把所有代码加入暂存区，需要每次运行
+# git commit -m "提交说明" #提交代码到本地仓库
+
+# git remote add origin https://github.com/mccoach/dailystockrank.git #关联远程仓库（最关键一步），仅第一次推送前运行
+
+# git push origin main #推送代码到远程仓库，只推代码不推版本号
+
+# git tag 版本号（不能含空格） #提交版本号，不能包含空格，如v1.0.0.20260524
+
+# git push origin --tags #推送所有版本号标签到远程仓库，只推版本号不推代码
+
+# #最常用的 5 条命令（每次推送都用）
+# git add .            # 保存改动
+# git commit -m "说明"  # 提交到本地
+# git push origin main # 推送到远程
+# git tag 版本号      # 打版本号标签
+# git push origin --tags  # 推送版本号
